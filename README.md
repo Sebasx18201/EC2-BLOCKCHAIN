@@ -8,10 +8,9 @@ Prototipo academico de registro de evidencias documentales para un piloto de int
 
 | Integrante | Rol |
 |---|---|
-| Pendiente de completar por el equipo | Contrato |
-| Pendiente de completar por el equipo | Pruebas |
-| Pendiente de completar por el equipo | Interfaz |
-| Pendiente de completar por el equipo | Documentacion |
+| Piero Alessandro Moreno Salas | Contrato |
+| Stiven Jhosue Moreno Inca | Pruebas y documentacion |
+| Sebastian Marco Ramirez Coronado | Interfaz |
 
 ---
 
@@ -32,7 +31,7 @@ La funcionalidad corresponde principalmente a RF07 (registro de evidencia) de la
 | Nombre del contrato | RegistroProyecto |
 | Red utilizada por la interfaz | Ethereum Sepolia (11155111) |
 | Direccion en Sepolia | 0x75Aa28803A417c9C588DeD4a8142f1DeF8A6C38a |
-| Fecha de despliegue | Pendiente de confirmar por el equipo |
+| Fecha de despliegue | 28/10/2026 |
 
 El archivo `contracts/RegistroProyecto.sol` todavia es la plantilla del curso. Antes de entregar, el equipo debe exportar desde Remix el `EC2.sol` final que desplego y guardarlo en `contracts/`. La interfaz utiliza la ABI suministrada por el equipo para ese contrato final, no la de la plantilla.
 
@@ -115,7 +114,7 @@ Se utilizo inteligencia artificial como apoyo para preparar la interfaz y la doc
 |---|---|---|
 | OpenAI Codex | Interfaz minima HTML/CSS/JavaScript, integracion con ABI y direccion aportadas por el equipo, y comprobaciones con conexiones simuladas | Crear una interfaz sencilla para la Actividad 11: conectar una billetera, leer y enviar una transaccion; mantener coherencia con semanas 9 y 10 y explicar el codigo |
 
-Revision y modificaciones realizadas por cada integrante: pendiente de completar por el equipo con los aportes reales y las pruebas que efectivamente ejecute.
+Revision y modificaciones realizadas por cada integrante: Stiven y Piero se encargaron de verificar el contrato y confirmar que tenga relación con nuestro proyecto planteado. Sebastian hizo unos ajustes finales al contrato y realizó la conexión con la billetera MetaMask que fue la empleada en esta ocasión.
 
 Cada integrante debe poder explicar en clase cualquier linea del codigo entregado.
 
@@ -136,10 +135,9 @@ iniciar-interfaz.cjs    vista HTTP local opcional, sin paquetes adicionales
 ## Pendientes antes de la entrega final
 
 - Exportar y guardar en `contracts/` el `EC2.sol` final que corresponde a la ABI y los despliegues; el archivo actual sigue siendo la plantilla del curso.
-- Completar nombres de integrantes, fecha de despliegue y revisiones realizadas por cada integrante.
 - Probar y documentar la conexion, lectura, escritura y rechazo de firma desde la interfaz con MetaMask en Sepolia.
 - Si se utiliza GitHub Pages, habilitar la publicacion y verificar el enlace de la interfaz.
-- Conservar aportes reales y visibles de los cuatro integrantes. Este cambio no sustituye sus contribuciones individuales.
+- Conservar aportes reales y visibles de los tres integrantes. Este cambio no sustituye sus contribuciones individuales.
 
 ---
 
