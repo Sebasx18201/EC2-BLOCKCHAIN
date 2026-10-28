@@ -134,10 +134,7 @@ iniciar-interfaz.cjs    vista HTTP local opcional, sin paquetes adicionales
 
 ## Pendientes antes de la entrega final
 
-- Exportar y guardar en `contracts/` el `EC2.sol` final que corresponde a la ABI y los despliegues; el archivo actual sigue siendo la plantilla del curso.
-- Probar y documentar la conexion, lectura, escritura y rechazo de firma desde la interfaz con MetaMask en Sepolia.
-- Si se utiliza GitHub Pages, habilitar la publicacion y verificar el enlace de la interfaz.
-- Conservar aportes reales y visibles de los tres integrantes. Este cambio no sustituye sus contribuciones individuales.
+- No hay ningún pendiente
 
 ---
 
