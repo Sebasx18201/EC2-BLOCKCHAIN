@@ -1,0 +1,3 @@
+Esta carpeta contiene seis capturas originales de las tres pruebas
+realizadas en Remix VM. PRUEBAS.md explica los casos, sus resultados
+y los pasos para reproducirlos. El README principal enlaza las evidencias.
