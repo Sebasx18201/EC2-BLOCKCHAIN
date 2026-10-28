@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evidencias MINSA · Laboratorio Blockchain</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.5/ethers.umd.min.js"></script>
+  <script defer src="abi.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">BLOCKCHAIN · ACTIVIDAD 11</p>
+      <h1>Registro de evidencias MINSA</h1>
+      <p>Prototipo académico para registrar y consultar la huella de una versión documental.</p>
+      <p class="notice">Utiliza únicamente identificadores ficticios y hashes. La información registrada es pública.</p>
+    </header>
+
+    <section class="card" aria-labelledby="conexion-titulo">
+      <div class="section-head"><h2 id="conexion-titulo">Conexión</h2><span class="badge">Ethereum Sepolia</span></div>
+      <dl class="connection-details">
+        <div><dt>Contrato</dt><dd><a id="contrato" target="_blank" rel="noopener noreferrer"></a></dd></div>
+        <div><dt>Administrador</dt><dd id="administrador">Consultando…</dd></div>
+        <div><dt>Tu cuenta</dt><dd id="cuenta">Sin conectar</dd></div>
+        <div><dt>Total de registros</dt><dd id="total">—</dd></div>
+      </dl>
+      <div class="actions">
+        <button id="conectar" type="button">Conectar MetaMask</button>
+        <button id="actualizar" type="button" class="secondary">Actualizar contador</button>
+      </div>
+      <p class="help">Puedes consultar sin conectar una billetera. Para registrar, conecta la cuenta administradora.</p>
+    </section>
+
+    <p id="estado" role="status" aria-live="polite" data-tipo="info">Conectando con Sepolia para habilitar las consultas…</p>
+    <p id="transaccion" hidden><a id="enlace-tx" target="_blank" rel="noopener noreferrer">Ver transacción en Sepolia Etherscan ↗</a></p>
+
+    <div class="grid">
+      <section class="card" aria-labelledby="registro-titulo">
+        <h2 id="registro-titulo">Registrar evidencia</h2>
+        <p class="help">Guarda una huella ya calculada fuera del contrato. Requiere confirmación en MetaMask y comisión en SepoliaETH.</p>
+        <form id="form-registro">
+          <label for="documento">ID de versión documental</label>
+          <input id="documento" name="documento" placeholder="DOC-001-V1" required>
+          <label for="establecimiento">Código del establecimiento</label>
+          <input id="establecimiento" name="establecimiento" placeholder="MINSA-A" required>
+          <label for="hash">Hash SHA-256</label>
+          <input id="hash" name="hash" class="mono" placeholder="0x seguido de 64 caracteres hexadecimales" required spellcheck="false" autocomplete="off">
+          <p class="help">Formato: 0x y 64 caracteres hexadecimales. El hash no puede ser cero.</p>
+          <button id="registrar" type="submit" disabled>Registrar evidencia</button>
+        </form>
+      </section>
+
+      <section class="card" aria-labelledby="consulta-titulo">
+        <h2 id="consulta-titulo">Consultar evidencia</h2>
+        <p class="help">Busca por el número asignado por el contrato. El primer registro es el 0. La consulta no envía una transacción.</p>
+        <form id="form-consulta">
+          <label for="registro-id">Número de registro</label>
+          <input id="registro-id" name="registro-id" type="text" inputmode="numeric" pattern="[0-9]+" value="0" required>
+          <button id="consultar" type="submit" class="secondary">Consultar registro</button>
+        </form>
+        <div id="resultado" hidden>
+          <h3>Evidencia registrada</h3>
+          <dl>
+            <dt>ID de versión documental</dt><dd id="dato-documento"></dd>
+            <dt>Establecimiento</dt><dd id="dato-establecimiento"></dd>
+            <dt>Autor</dt><dd id="dato-autor" class="mono"></dd>
+            <dt>Fecha del bloque</dt><dd id="dato-fecha"></dd>
+            <dt>Hash SHA-256</dt><dd id="dato-hash" class="mono"></dd>
+          </dl>
+        </div>
+      </section>
+    </div>
+    <footer>La evidencia permite comparar huellas; no certifica la veracidad médica del documento. Prototipo del curso, sin integración con sistemas clínicos.</footer>
+  </main>
+</body>
+</html>

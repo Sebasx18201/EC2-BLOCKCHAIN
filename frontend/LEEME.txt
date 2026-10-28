@@ -1,0 +1,29 @@
+INTERFAZ MINIMA - ACTIVIDAD 11
+
+index.html: pagina y formularios.
+styles.css: presentacion adaptable a escritorio y movil.
+abi.js: ABI del contrato final aportada por el equipo desde Remix.
+app.js: direccion de Sepolia, conexion MetaMask, consultas y transacciones.
+
+Red: Ethereum Sepolia (11155111).
+Contrato: 0x75Aa28803A417c9C588DeD4a8142f1DeF8A6C38a.
+
+Desde la terminal de VS Code, en la carpeta del proyecto, ejecutar:
+  node iniciar-interfaz.cjs
+Abrir http://127.0.0.1:4173 en Chrome y mantener la terminal activa.
+Para detenerla, Ctrl+C. El ayudante utiliza Node.js ya instalado, sin paquetes.
+Tambien se puede usar GitHub Pages. Las instrucciones y las pruebas de uso
+estan en el README del proyecto.
+
+No hace falta instalar paquetes para ejecutar la interfaz. Requiere
+internet para cargar ethers desde cdnjs y acceder a la red de pruebas.
+La consulta es publica. Solo la cuenta administradora puede registrar.
+
+Si se despliega otra copia, actualizar DIRECCION_CONTRATO en app.js.
+Si se modifica el contrato, actualizar tambien su ABI en abi.js.
+
+La comprobacion con MetaMask y el contrato real esta pendiente. Usar
+unicamente datos sinteticos. Nunca incluir claves ni frases de recuperacion.
+
+Los integrantes deben revisar y poder explicar el codigo. El uso de IA
+esta declarado en el README; completar alli sus revisiones y aportes reales.
