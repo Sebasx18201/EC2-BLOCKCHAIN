@@ -6,7 +6,7 @@ abi.js: ABI del contrato final aportada por el equipo desde Remix.
 app.js: direccion de Sepolia, conexion MetaMask, consultas y transacciones.
 
 Red: Ethereum Sepolia (11155111).
-Contrato: 0x75Aa28803A417c9C588DeD4a8142f1DeF8A6C38a.
+Contrato: 0x2cA6f1080c6f17cF5e7D95E8F306EcfCe7A93948.
 
 Desde la terminal de VS Code, en la carpeta del proyecto, ejecutar:
   node iniciar-interfaz.cjs
