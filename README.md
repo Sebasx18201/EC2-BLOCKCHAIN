@@ -30,8 +30,8 @@ La funcionalidad corresponde principalmente a RF07 (registro de evidencia) de la
 |---|---|
 | Nombre del contrato | RegistroProyecto |
 | Red utilizada por la interfaz | Ethereum Sepolia (11155111) |
-| Direccion en Sepolia | 0x75Aa28803A417c9C588DeD4a8142f1DeF8A6C38a |
-| Fecha de despliegue | 28/10/2026 |
+| Direccion en Sepolia | 0x2cA6f1080c6f17cF5e7D95E8F306EcfCe7A93948 |
+| Fecha de despliegue | 31/10/2026 |
 
 El archivo `contracts/RegistroProyecto.sol` todavia es la plantilla del curso. Antes de entregar, el equipo debe exportar desde Remix el `EC2.sol` final que desplego y guardarlo en `contracts/`. La interfaz utiliza la ABI suministrada por el equipo para ese contrato final, no la de la plantilla.
 

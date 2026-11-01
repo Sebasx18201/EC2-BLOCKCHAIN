@@ -1,5 +1,5 @@
 // 1. CONFIGURACION: actualizar la direccion si el equipo vuelve a desplegar.
-const DIRECCION_CONTRATO = '0x75Aa28803A417c9C588DeD4a8142f1DeF8A6C38a'.toLowerCase();
+const DIRECCION_CONTRATO = '0x2cA6f1080c6f17cF5e7D95E8F306EcfCe7A93948'.toLowerCase();
 const RED_SEPOLIA = 11155111n;
 const RPC_LECTURA = 'https://ethereum-sepolia-rpc.publicnode.com';
 const EXPLORADOR = 'https://sepolia.etherscan.io';
