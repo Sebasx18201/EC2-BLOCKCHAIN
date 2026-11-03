@@ -33,7 +33,7 @@ La funcionalidad corresponde principalmente a RF07 (registro de evidencia) de la
 | Direccion en Sepolia | 0x2cA6f1080c6f17cF5e7D95E8F306EcfCe7A93948 |
 | Fecha de despliegue | 31/10/2026 |
 
-El archivo `contracts/RegistroProyecto.sol` todavia es la plantilla del curso. Antes de entregar, el equipo debe exportar desde Remix el `EC2.sol` final que desplego y guardarlo en `contracts/`. La interfaz utiliza la ABI suministrada por el equipo para ese contrato final, no la de la plantilla.
+El archivo `contracts/RegistroProyecto.sol` contiene una copia sin modificaciones del `EC2.sol` final proporcionado por el equipo y utilizado en Remix. El nombre del contrato es `RegistroProyecto`; el nombre del archivo no altera sus funciones. Sus funciones, tipos y evento coinciden con la ABI de `frontend/abi.js`.
 
 ---
 
@@ -43,7 +43,7 @@ El archivo `contracts/RegistroProyecto.sol` todavia es la plantilla del curso. A
 
 1. Entrar a https://remix.ethereum.org
 2. Crear el archivo `.sol` dentro de la carpeta `contracts`
-3. Pegar el contenido de `contracts/RegistroProyecto.sol` y adaptarlo a su caso
+3. Pegar el contenido final de `contracts/RegistroProyecto.sol`; puede guardarse como `EC2.sol` en Remix
 4. Compilar con la version 0.8.24
 5. Desplegar en el entorno Remix VM
 6. Copiar la direccion del contrato desplegado
