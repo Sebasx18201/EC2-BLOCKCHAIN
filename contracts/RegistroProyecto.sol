@@ -2,86 +2,120 @@
 pragma solidity ^0.8.24;
 
 /// @title RegistroProyecto
-/// @notice Contrato base del laboratorio. Cada equipo lo adapta a su propio caso.
-/// @dev Busque los comentarios TODO: ahi es donde su equipo debe trabajar.
+/// @notice Prototipo academico de registro de evidencias documentales del MINSA.
+/// @dev Usar identificadores ficticios. No almacenar datos personales ni clinicos.
 contract RegistroProyecto {
 
-    // ---------------------------------------------------------------
     // 1. VARIABLES DE ESTADO
-    // Lo que el contrato guarda de forma permanente en la blockchain.
-    // ---------------------------------------------------------------
-
     address public administrador;
     uint256 public totalRegistros;
 
     struct Registro {
-        string descripcion;
+        string documentoVersionId;
         address autor;
         uint256 fecha;
+        string establecimiento;
+        bytes32 hashDocumento;
     }
 
+    // El numero de registro comienza en 0. La evidencia es de lectura publica.
     mapping(uint256 => Registro) public registros;
 
-    // TODO: agregue aqui las variables que necesite su caso.
-
-    // ---------------------------------------------------------------
     // 2. EVENTOS
-    // Avisan a la interfaz que algo cambio dentro del contrato.
-    // ---------------------------------------------------------------
+    event RegistroCreado(
+        uint256 id,
+        string documentoVersionId,
+        address autor,
+        string establecimiento,
+        bytes32 hashDocumento
+    );
 
-    event RegistroCreado(uint256 id, string descripcion, address autor);
-
-    // TODO: agregue un evento por cada cambio relevante de su caso.
-
-    // ---------------------------------------------------------------
     // 3. CONTROL DE ACCESO
-    // Condicion que se verifica antes de ejecutar una funcion.
-    // ---------------------------------------------------------------
-
     modifier soloAdministrador() {
         require(msg.sender == administrador, "No autorizado");
         _;
     }
 
-    // ---------------------------------------------------------------
     // 4. CONSTRUCTOR
-    // Se ejecuta una sola vez, en el momento del despliegue.
-    // ---------------------------------------------------------------
-
+    // La cuenta que despliega representa al registrador autorizado del piloto.
     constructor() {
         administrador = msg.sender;
     }
 
-    // ---------------------------------------------------------------
     // 5. FUNCION QUE ESCRIBE
-    // Cambia el estado del contrato. Cuesta gas y abre la billetera.
-    // ---------------------------------------------------------------
+    // El SHA-256 se calcula fuera del contrato y se entrega como bytes32.
+    function crearRegistro(
+        string memory _documentoVersionId,
+        string memory _establecimiento,
+        bytes32 _hashDocumento
+    ) public soloAdministrador {
+        require(
+            bytes(_documentoVersionId).length > 0,
+            "El ID documental no puede estar vacio"
+        );
+        require(
+            bytes(_establecimiento).length > 0,
+            "El establecimiento no puede estar vacio"
+        );
+        require(
+            _hashDocumento != bytes32(0),
+            "El hash no puede ser cero"
+        );
 
-    function crearRegistro(string memory _descripcion) public soloAdministrador {
-        require(bytes(_descripcion).length > 0, "La descripcion no puede estar vacia");
+        uint256 id = totalRegistros;
 
-        registros[totalRegistros] = Registro(_descripcion, msg.sender, block.timestamp);
-        emit RegistroCreado(totalRegistros, _descripcion, msg.sender);
+        registros[id] = Registro({
+            documentoVersionId: _documentoVersionId,
+            autor: msg.sender,
+            fecha: block.timestamp,
+            establecimiento: _establecimiento,
+            hashDocumento: _hashDocumento
+        });
+
         totalRegistros++;
+
+        emit RegistroCreado(
+            id,
+            _documentoVersionId,
+            msg.sender,
+            _establecimiento,
+            _hashDocumento
+        );
     }
 
-    // TODO: reemplace crearRegistro por la funcion real de su caso.
-
-    // ---------------------------------------------------------------
-    // 6. FUNCION QUE SOLO LEE
-    // No cambia nada. No cuesta gas ni abre la billetera.
-    // ---------------------------------------------------------------
-
+    // 6. FUNCIONES DE LECTURA
+    // Una llamada de lectura desde la interfaz no requiere una transaccion.
     function obtenerRegistro(uint256 _id)
         public
         view
-        returns (string memory, address, uint256)
+        returns (
+            string memory documentoVersionId,
+            address autor,
+            uint256 fecha,
+            string memory establecimiento,
+            bytes32 hashDocumento
+        )
     {
         require(_id < totalRegistros, "Ese registro no existe");
 
         Registro memory r = registros[_id];
-        return (r.descripcion, r.autor, r.fecha);
+
+        return (
+            r.documentoVersionId,
+            r.autor,
+            r.fecha,
+            r.establecimiento,
+            r.hashDocumento
+        );
     }
 
-    // TODO: agregue las funciones de lectura que necesite su interfaz.
+    function obtenerHash(uint256 _id)
+        public
+        view
+        returns (bytes32)
+    {
+        require(_id < totalRegistros, "Ese registro no existe");
+
+        return registros[_id].hashDocumento;
+    }
 }

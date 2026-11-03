@@ -50,7 +50,7 @@ La consulta posterior de `totalRegistros` sigue devolviendo `1`: el intento inv�
 
 ## Reproducción por otro integrante o el profesor
 
-1. Obtener el `EC2.sol` final exportado desde Remix. El archivo local `contracts/RegistroProyecto.sol` todavía es la plantilla del curso y debe sustituirse por la versión final antes de entregar.
+1. Utilizar `contracts/RegistroProyecto.sol`, copia sin modificaciones del `EC2.sol` final proporcionado por el equipo. Puede guardarse como `EC2.sol` en Remix; el contrato se llama `RegistroProyecto`.
 2. Compilar el contrato con Solidity 0.8.24 y desplegar una copia nueva en Remix VM. La nueva dirección puede ser distinta de la capturada.
 3. Conservar la cuenta de despliegue para el caso válido y comprobar que el contador pasa de 0 a 1.
 4. Cambiar de cuenta para el caso sin permiso. Usar la misma instancia y comprobar que el contador continúa en 1.
